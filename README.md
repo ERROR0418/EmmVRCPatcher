@@ -2,7 +2,7 @@
 Used to patch EMMVRC to allow for RiskyFuncs everywhere and a custom API server.
 
 ## Note for users
-A pre-built version pointing to localhost (disconnecting you from EMMVRC's network) is available in the [releases](https://github.com/ERROR0418/EmmVRCPatcher/releases)
+A pre-built version pointing to localhost, disconnecting you from EMMVRC's network but allowing all risky funcs, is available in the [releases](https://github.com/ERROR0418/EmmVRCPatcher/releases)
 
 Other than that I will be keeping a list of public API servers (that people tell me about) at the bottom of this readme
 
