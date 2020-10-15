@@ -1,4 +1,5 @@
-﻿using emmVRCCustom;
+using emmVRC.Network;
+using emmVRCCustom;
 using MelonLoader;
 using System.Reflection;
 
@@ -12,16 +13,12 @@ namespace EMMVRCCustomMod
         public const string Company = null; // Company that made the Mod.  (Set as null if none)
         public const string Version = "1.0.0"; // Version of the Mod.  (MUST BE SET)
         public const string DownloadLink = null; // Download Link for the Mod.  (Set as null if none)
+        
     }
 
     public class EMMVRCCustomMod : MelonMod
     {
-
-        public override void OnApplicationStart() // Runs after Game Initialization.
-        {
-           
-        }
-
+        public const string BaseURL = "http://127.0.0.1";
         public override void OnLevelIsLoading() // Runs when a Scene is Loading or when a Loading Screen is Shown. Currently only runs if the Mod is used in BONEWORKS.
         {
         }
@@ -29,6 +26,10 @@ namespace EMMVRCCustomMod
         public override void OnLevelWasLoaded(int level) // Runs when a Scene has Loaded.
         {
             Patcher.PatchRiskyFuncs();
+            // "STREAMER" MODE, need to add toggle in settings.
+            //if (emmVRC.emmVRC.Initialized) { 
+            //    Patcher.HideButton();
+            //}
         }
 
         public override void OnLevelWasInitialized(int level) // Runs when a Scene has Initialized.
@@ -63,7 +64,9 @@ namespace EMMVRCCustomMod
 
         public override void VRChat_OnUiManagerInit() // Runs upon VRChat's UiManager Initialization. Only runs if the Mod is used in VRChat.
         {
-            Patcher.PatchEmm();
+            //Patcher.PatchEmm();
+            Patcher.PatchURL();
+            MelonLogger.Log(NetworkClient.baseURL);
         }
     }
 }
